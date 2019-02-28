@@ -35,7 +35,7 @@ pageContext.setAttribute("path", path);
 
 </head>
 <body class="bgtest">
-	<!--特效-->
+<!--特效--><!--我是一个注解-->
 	<canvas style="position:absolute; left:-10px"></canvas>
     
 	<div class="login-box">
