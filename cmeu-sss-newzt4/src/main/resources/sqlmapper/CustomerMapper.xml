@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmeu.mapper.CustomerMapper">
+	
+	<resultMap type="com.cmeu.pojo.vo.CustomerVo" id="customerVoMap">
+		<id column="customer_id" property="id" jdbcType="INTEGER"/>
+		<result column="name" property="name" jdbcType="VARCHAR"/>
+		<result column="telephone" property="telephone" jdbcType="VARCHAR"/>
+		<result column="email" property="email" jdbcType="VARCHAR"/>
+		<result column="adress" property="adress" jdbcType="VARCHAR"/>
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+		<result column="customer_category_value" property="customerCategoryValue" jdbcType="VARCHAR"/>
+		<result column="stage_value" property="stageValue" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+		customer_id as id ,name ,adress ,telephone ,create_time as createTime, email 
+	</sql>
+	
+	<sql id="query_customer_where">
+		<if test="customer!=null">
+			<if test="customer.name!=null and customer.name!=''">
+				 and name like '%${customer.name}%' 
+			</if>
+			<if test="customer.category_id!=null">
+				 and category_id = #{customer.category_id}
+			</if>
+			<if test="customer.adress!=null and customer.adress!=''">
+				 and adress like '%${customer.adress}%'
+			</if>
+		</if>
+	</sql>
+	
+	<select id="queryList" resultMap="customerVoMap">
+		select 
+		c.customer_id ,
+		name ,
+		adress ,
+		telephone ,
+		create_time as createTime, 
+		email , 
+		cc.customer_category_value
+		from 
+		customer as c
+		left join customer_category as cc
+		on c.category_id=cc.customer_category_id
+		<where>
+			<include refid="query_customer_where"></include>
+		</where>
+		order by customer_id desc limit #{start} , #{count}
+	</select>
+	
+	<select id="get" resultType="com.cmeu.pojo.Customer" parameterType="int">
+		select * from customer where customer_id=#{id}
+	</select>
+	
+	<select id="getTotal" resultType="int" >
+		select count(*) from customer
+	</select>
+
+	<select id="getList" resultType="com.cmeu.pojo.Customer">
+		select * from customer
+	</select>
+	
+	<select id="getPageList" resultType="customer">
+		select * from customer limit #{start} , #{count}
+	</select>
+	
+<!-- 	<select id="queryList" resultType="customer">
+		select * from customer 
+		<where>
+			<include refid="query_customer_where"></include>
+		</where>
+		order by customer_id desc limit #{start} , #{count}
+	</select> -->
+	
+	<select id="queryListSize" resultType="int" parameterType="customer">
+		select count(*) from customer 
+		<where>
+			<include refid="query_customer_where"></include>
+		</where>
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		delete from customer where customer_id=#{id}
+	</delete>
+	
+	
+	<insert id="save" parameterType="com.cmeu.pojo.Customer">
+		insert into customer(telephone,adress,name,email,category_id) values(#{telephone},#{adress},#{name},#{email},#{category_id})
+	</insert>
+	
+	<update id="update" parameterType="com.cmeu.pojo.Customer">
+		update customer 
+		set name=#{name} ,
+		adress=#{adress},
+		telephone=#{telephone}, 
+		email=#{email}, 
+		stage_id =#{stage_id},
+		category_id=#{category_id} ,
+		create_time=#{createTime}
+		where customer_id=#{id}
+	</update>
+</mapper>

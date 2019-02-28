@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmeu.mapper.CareMapper">
+	
+	
+	<select id="get" resultType="com.cmeu.pojo.Care" parameterType="int">
+		select * from care where id=#{id}
+	</select>
+	
+	<select id="getTotal" resultType="int" >
+		select count(*) from care
+	</select>
+
+	<select id="getList" resultType="com.cmeu.pojo.Care">
+		select * from care
+	</select>
+	
+	<select id="getPageList" resultType="com.cmeu.pojo.Care">
+		select * from care limit #{start} , #{count}
+	</select>
+	
+	<select id="queryList" resultType="com.cmeu.pojo.Care" parameterType="com.cmeu.pojo.Care">
+		select * from care 
+		
+		
+		
+		
+		order by id desc
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		delete from care where id=#{id}
+	</delete>
+	
+	
+	<insert id="save" parameterType="com.cmeu.pojo.Care">
+		<!-- <selectKey keyProperty="id" order="AFTER">
+			SELECT LAST_INSERT_ID
+		</selectKey> -->
+		insert into care(theme,date,executor) values(#{theme},#{date},#{executor})
+	</insert>
+	
+	<update id="update" parameterType="com.cmeu.pojo.Care" >
+		update care 
+		set theme = #{theme}
+		,date =#{date}
+		,executor = #{executor}
+		where id=#{id}
+	</update>
+
+
+</mapper>

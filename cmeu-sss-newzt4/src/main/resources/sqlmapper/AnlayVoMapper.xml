@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cmeu.mapper.AnlayVoMapper">
+<resultMap type="com.cmeu.pojo.vo.AnalyVo" id="AnalyVo">
+	<id column="stage_id" property="stageId" jdbcType="INTEGER"/>
+	<result column="value" property="value" jdbcType="VARCHAR"/>
+	<result column="number" property="number" jdbcType="INTEGER"/>
+</resultMap>
+<select id="getAnlayVo" resultMap="AnalyVo">
+    select s.stage_id , s.`value`,COUNT(*) number  from customer c
+    LEFT JOIN customer_stage s on s.stage_id =  ifnull(c.stage_id,5)
+    GROUP BY s.stage_id
+</select>
+</mapper>

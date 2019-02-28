@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cmeu-ssm:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="cmeu-ssm.war">
+      <element id="artifact" artifact-name="cmeu-ssm:war exploded" />
+    </root>
+  </artifact>
+</component>

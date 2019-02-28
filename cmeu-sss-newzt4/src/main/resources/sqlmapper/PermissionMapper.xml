@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmeu.mapper.PermissionMapper">
+
+	<sql id="p">
+		p.id,
+		p.name,
+		p.type,
+		p.url,
+		p.percode,
+		p.parentid,
+		p.seq,
+		p.available,
+		p.create_time createTime,
+		p.icon
+	</sql>
+	<select id="listPermissions" resultType="permission" parameterType="int">
+	select
+	<include refid="p"></include>
+	from permission p
+	where p.id in (
+		select
+		permission_id
+		from
+		role_permission
+		where
+		role_id in (
+			select 
+			role_id
+			from user_role
+			where
+			user_id=1
+		)
+	)
+	</select>
+	
+	<select id="list" resultType="permission">
+	select
+	<include refid="p"></include>
+	from permission p
+	</select>
+	
+</mapper>

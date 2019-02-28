@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmeu.mapper.RoleMapper">
+
+	<select id="listUrls" resultType="String" parameterType="int">
+	select
+	p.url
+	from permission p
+	where p.id in (
+		select
+		permission_id
+		from
+		role_permission
+		where
+		role_id in (
+			select 
+			role_id
+			from user_role
+			where
+			user_id=#{userId}
+		)
+	)
+	</select>
+	
+	<select id="listRoles" resultType="String" parameterType="int">
+	select
+	r.name
+	from role r
+	where
+	r.id in (
+		select 
+		role_id
+		from user_role
+		where
+		user_id=#{userId}
+	)
+	</select>
+	
+	<select id="listAllRoles" resultType="String" >
+	select * from role
+	</select>
+
+</mapper>
