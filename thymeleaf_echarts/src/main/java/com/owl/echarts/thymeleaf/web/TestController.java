@@ -2,6 +2,7 @@ package com.owl.echarts.thymeleaf.web;
 
 import com.owl.echarts.thymeleaf.pojo.Analyze;
 import com.owl.echarts.thymeleaf.pojo.Product;
+import com.owl.echarts.thymeleaf.pojo.echartsRaderVo;
 import com.owl.echarts.thymeleaf.pojo.echartsVo;
 import com.owl.echarts.thymeleaf.service.AnalyzeService;
 import org.springframework.stereotype.Controller;
@@ -55,9 +56,22 @@ public class TestController {
 	}
     @RequestMapping("/echarts2")
     @ResponseBody
-    public  List<Analyze> echarts(){
-        return analyzeService.selectAll();
+    public  List<echartsRaderVo> echarts(Model model){
+        List<echartsRaderVo> list =new ArrayList<>();
+        ArrayList<String> strings = new ArrayList<>();
+            strings.add(String.valueOf(Math.ceil(Math.random() * 100)));
+            strings.add(String.valueOf(Math.ceil(Math.random() * 100)));
+            strings.add(String.valueOf(Math.ceil(Math.random() * 100)));
+            strings.add(String.valueOf(Math.ceil(Math.random() * 100)));
+            strings.add(String.valueOf(Math.ceil(Math.random() * 100)));
+        list.add(new echartsRaderVo("客户1",strings,"特点1","100"));
+        list.add(new echartsRaderVo("客户2",strings,"特点1","100"));
+        list.add(new echartsRaderVo("客户3",strings,"特点1","100"));
+        list.add(new echartsRaderVo("客户4",strings,"特点1","100"));
+        list.add(new echartsRaderVo("客户5",strings,"特点1","100"));
 
+
+        return  list;
     }
 
 }

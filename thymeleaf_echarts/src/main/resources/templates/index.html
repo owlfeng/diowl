@@ -26,7 +26,7 @@ sadf
     $(document).ready(function() {
         var Arr = new Array();//类型
         var ArrNum = new Array()//个数
-        $.ajax(
+        /*$.ajax(
             {
                 type: "POST",
                 url: "http://localhost:8080/thymeleaf/echarts",
@@ -34,6 +34,20 @@ sadf
                 success: function (result) {
                     if (result) {
                         echartPie(result);
+                    }
+                },
+                error: function (errorMsg) {
+                    alert("加载数据失败");
+                }
+            });*/
+        $.ajax(
+            {
+                type: "POST",
+                url: "http://localhost:8080/thymeleaf/echarts2",
+                dataType: 'json',
+                success: function (result) {
+                    if (result) {
+                        echartRader(result);
                     }
                 },
                 error: function (errorMsg) {
@@ -111,12 +125,21 @@ sadf
         // function echartRader(result) {
         /*
         *  雷达图 参数 需要 name value data data也是 其中value要作为list 数组  分别对应
-        *
         * */
+
         var dom2 = document.getElementById("main2");
         var myChart2 = echarts.init(dom2);
-                myChart2.setOption({
-                title: {
+        function echartRader(result) {
+            alert(result);
+                var list =[];
+                for(var i in result){
+                    list.push(result[i].name);
+                }
+                alert(list);
+
+            option = null;
+            option = {
+                 title: {
                     text: '预算 vs 开销（Budget vs spending）',
                     subtext: '纯属虚构'
                 },
@@ -127,7 +150,18 @@ sadf
                     orient: 'vertical',
                     x: 'right',
                     y: 'bottom',
-                    data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+                    data:list
+
+                      // ['客户1','客户2','客户3','客户4','客户5']
+                    /*
+                    *  for(var i in data){
+                          //表示遍历数组，而i表示的是数组的下标值，
+                          //data[i]表示获得第i个json对象即JSONObject
+                          //data[i]通过.字段名称即可获得指定字段的值
+                            data[i].userName;
+                           }
+                    *
+                    * */
                 },
                 toolbox: {
                     show: true,
@@ -140,14 +174,13 @@ sadf
                 },
                 polar: [
                     {
-                        indicator: [
-                            {text: '销售（sales）', max: 6000},
-                            {text: '管理（Administration）', max: 16000},
-                            {text: '信息技术（Information Techology）', max: 30000},
-                            {text: '客服（Customer Support）', max: 38000},
-                            {text: '研发（Development）', max: 52000},
-                            {text: '市场（Marketing）', max: 25000}
-                        ]
+                        indicator:result /*[
+                            {text: '特点1', max: 100},
+                            {text: '特点2', max: 100},
+                            {text: '特点3', max: 100},
+                            {text: '特点4', max: 100},
+                            {text: '特点5', max: 100},
+                        ]*/
                     }
                 ],
                 calculable: true,
@@ -155,7 +188,7 @@ sadf
                     {
                         name: '预算 vs 开销（Budget vs spending）',
                         type: 'radar',
-                        data: [
+                        data:result/* [
                             {
                                 value: [4300, 10000, 28000, 35000, 50000, 19000],
                                 name: '预算分配（Allocated Budget）'
@@ -164,12 +197,14 @@ sadf
                                 value: [5000, 14000, 28000, 31000, 42000, 21000],
                                 name: '实际开销（Actual Spending）'
                             }
-                        ]
+                        ]*/
                     }
                 ]
-            });
-
-
+            };
+            if (option && typeof option === "object") {
+                myChart2.setOption(option, true);
+            }
+        }
     });
     </script>
     </body>
