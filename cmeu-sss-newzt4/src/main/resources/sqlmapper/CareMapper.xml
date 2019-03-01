@@ -22,28 +22,23 @@
 	</select>
 	
 	<select id="queryList" resultType="com.cmeu.pojo.Care" parameterType="com.cmeu.pojo.Care">
-		select * from care 
-		
-		
-		
-		
-		order by id desc
+		select * from care order by id desc
 	</select>
-	
+
 	<delete id="delete" parameterType="int">
 		delete from care where id=#{id}
 	</delete>
-	
-	
+
+
 	<insert id="save" parameterType="com.cmeu.pojo.Care">
 		<!-- <selectKey keyProperty="id" order="AFTER">
 			SELECT LAST_INSERT_ID
 		</selectKey> -->
 		insert into care(theme,date,executor) values(#{theme},#{date},#{executor})
 	</insert>
-	
+
 	<update id="update" parameterType="com.cmeu.pojo.Care" >
-		update care 
+		update care
 		set theme = #{theme}
 		,date =#{date}
 		,executor = #{executor}

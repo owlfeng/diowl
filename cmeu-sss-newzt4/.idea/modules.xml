@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/cmeu-ssm.iml" filepath="$PROJECT_DIR$/cmeu-ssm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../spring-boot-examples/spring-boot-shiro/spring-boot-shiro.iml" filepath="$PROJECT_DIR$/../../spring-boot-examples/spring-boot-shiro/spring-boot-shiro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../thymeleaf_echarts/thymeleaf.iml" filepath="$PROJECT_DIR$/../thymeleaf_echarts/thymeleaf.iml" />
     </modules>
   </component>
 </project>

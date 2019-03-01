@@ -23,7 +23,6 @@ public class URLPathMatchingFilter extends PathMatchingFilter {
     protected boolean onPreHandle(ServletRequest request, ServletResponse response, Object mappedValue)
             throws Exception {
         String requestURI = getPathWithinApplication(request);
- 
         Subject subject = SecurityUtils.getSubject();
         // 如果没有登录，就跳转到登录页面
         if (!subject.isAuthenticated()) {

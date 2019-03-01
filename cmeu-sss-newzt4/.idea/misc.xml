@@ -7,6 +7,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../../spring-boot-examples/spring-boot-shiro/pom.xml" />
+        <option value="$PROJECT_DIR$/../thymeleaf_echarts/pom.xml" />
       </list>
     </option>
   </component>

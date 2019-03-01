@@ -7,10 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="cmeu-ssm" />
+        <module name="spring-boot-shiro" />
+        <module name="thymeleaf" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="cmeu-ssm" target="1.8" />
+      <module name="spring-boot-shiro" target="1.8" />
+      <module name="thymeleaf" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
