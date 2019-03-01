@@ -6,33 +6,12 @@ public class echartsRaderVo {
     private String  name;
     private List<String> value;
     private String text;
-    private String max;
+    private int max;
 
-    public echartsRaderVo(String name, List<String> value) {
-        this.name = name;
-        this.value = value;
-    }
-
-    public echartsRaderVo(String name, List<String> value, String text, String max) {
+    public echartsRaderVo(String name, List<String> value, String text, int max) {
         this.name = name;
         this.value = value;
         this.text = text;
-        this.max = max;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public String getMax() {
-        return max;
-    }
-
-    public void setMax(String max) {
         this.max = max;
     }
 
@@ -52,11 +31,19 @@ public class echartsRaderVo {
         this.value = value;
     }
 
-    @Override
-    public String toString() {
-        return "echartsRaderVo{" +
-                "name='" + name + '\'' +
-                ", value=" + value +
-                '}';
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public int getMax() {
+        return max;
+    }
+
+    public void setMax(int max) {
+        this.max = max;
     }
 }

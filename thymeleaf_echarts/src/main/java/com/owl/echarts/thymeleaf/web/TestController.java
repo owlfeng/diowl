@@ -59,18 +59,15 @@ public class TestController {
     public  List<echartsRaderVo> echarts(Model model){
         List<echartsRaderVo> list =new ArrayList<>();
         ArrayList<String> strings = new ArrayList<>();
-            strings.add(String.valueOf(Math.ceil(Math.random() * 100)));
-            strings.add(String.valueOf(Math.ceil(Math.random() * 100)));
-            strings.add(String.valueOf(Math.ceil(Math.random() * 100)));
-            strings.add(String.valueOf(Math.ceil(Math.random() * 100)));
-            strings.add(String.valueOf(Math.ceil(Math.random() * 100)));
-        list.add(new echartsRaderVo("客户1",strings,"特点1","100"));
-        list.add(new echartsRaderVo("客户2",strings,"特点1","100"));
-        list.add(new echartsRaderVo("客户3",strings,"特点1","100"));
-        list.add(new echartsRaderVo("客户4",strings,"特点1","100"));
-        list.add(new echartsRaderVo("客户5",strings,"特点1","100"));
+          for (int i=0 ;i<5;i++) {
+              strings.add(String.valueOf(Math.ceil(Math.random() * 100)));
+          }
+        list.add(new echartsRaderVo("客户1",strings,"特点1",100));
+        list.add(new echartsRaderVo("客户2",strings,"特点2",100));
+        list.add(new echartsRaderVo("客户3",strings,"特点3",100));
+        list.add(new echartsRaderVo("客户4",strings,"特点4",100));
 
-
+        list.add(new echartsRaderVo("客户5",strings,"特点5",100));
         return  list;
     }
 

@@ -8,7 +8,7 @@
 <body>
 sadf
 <div id="main" style="height:400px;width: 800px"></div>
-<div id="main2" style="height:400px;width: 800px"></div>
+<div id="main2" style="height:800px;width: 1000px"></div>
 
 <p th:each="analy: ${analyzes}">
     <span th:text="${analy.getId()}">3123</span>
@@ -26,7 +26,7 @@ sadf
     $(document).ready(function() {
         var Arr = new Array();//类型
         var ArrNum = new Array()//个数
-        /*$.ajax(
+        $.ajax(
             {
                 type: "POST",
                 url: "http://localhost:8080/thymeleaf/echarts",
@@ -39,7 +39,7 @@ sadf
                 error: function (errorMsg) {
                     alert("加载数据失败");
                 }
-            });*/
+            });
         $.ajax(
             {
                 type: "POST",
@@ -130,13 +130,18 @@ sadf
         var dom2 = document.getElementById("main2");
         var myChart2 = echarts.init(dom2);
         function echartRader(result) {
-            alert(result);
                 var list =[];
+                var indicatorList=[];
+                var textList=[];
+                var maxList=[];
                 for(var i in result){
+                    textList.push(result[i].text);
+                    maxList.push(result[i].max);
                     list.push(result[i].name);
+                    indicatorList.push({"text":result[i].text,"max":result.max});
                 }
-                alert(list);
 
+                alert( textList +""+ maxList+""+ list);
             option = null;
             option = {
                  title: {
@@ -174,7 +179,7 @@ sadf
                 },
                 polar: [
                     {
-                        indicator:result /*[
+                        indicator:indicatorList/*[
                             {text: '特点1', max: 100},
                             {text: '特点2', max: 100},
                             {text: '特点3', max: 100},
