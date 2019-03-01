@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<body>
+sadf
+<div id="main" style="height:400px;"></div>
+
+<p th:each="analy: ${analyzes}">
+    <span th:text="${analy.getId()}">3123</span>
+    <span th:text="${analy.getPurchase()}">3123</span>
+    <span th:text="${analy.getBuyinterval()}">41324</span>
+    <span th:text="${analy.getTotal()}">12341234</span>
+</p>
+<!--
+<script th:src="@{/echarts.common.min.js}" src="../static/echarts.common.min.js"></script>
+-->
+
+<script type="text/javascript" src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts-en.common.min.js"></script>
+<script type="text/javascript" language="javascript" class="init">
+    $(document).ready(function() {
+        var Arr = new Array();//类型
+        var ArrNum = new Array()//个数
+        $.ajax(
+            {
+                type: "POST",
+                url: "http://localhost:8080/thymeleaf/echarts",
+                dataType: 'json',
+                success: function (result) {
+                    if (result) {
+                        echartPie(result);
+                    }
+                },
+                error: function (errorMsg) {
+                    alert("加载数据失败");
+                }
+            });
+
+        var dom = document.getElementById("main");
+        var myChart = echarts.init(dom);
+
+        function echartPie(result) {
+
+            option = null;
+            option = {
+                title: {
+                    text: '用户类型图',
+                    subtext: '',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    data: result
+
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        mark: {show: true},
+                        dataView: {show: true, readOnly: false},
+                        magicType: {
+                            show: true,
+                            type: ['pie', 'funnel'],
+                            option: {
+                                funnel: {
+                                    x: '25%',
+                                    width: '50%',
+                                    funnelAlign: 'left',
+                                    max: 1700
+                                }
+                            }
+                        },
+                        restore: {show: true},
+                        saveAsImage: {show: true}
+                    }
+                },
+                calculable: true,
+                series: [
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        radius: '55%',
+                        center: ['50%', '60%'],
+                        data: result,
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+        }
+    });
+    </script>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:each="analy: ${analyzes}">
+    <span th:text="${analy.getId()}">3123</span>
+    <span th:text="${analy.getPurchase()}">3123</span>
+    <span th:text="${analy.getBuyinterval()}">41324</span>
+    <span th:text="${analy.getTotal()}">12341234</span>
+</p>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" media="all" href="../../webapp/static/css/style.css" th:href="@{/static/css/style.css}"/>
+	<script type="text/javascript" src="../../webapp/static/js/thymeleaf.js" th:src="@{/static/js/thymeleaf.js}"></script>
+    
+    <script>
+    testFunction();
+    </script>
+        
+</head>
+<body>
+<div class="showing">
+
+<p th:text="${name}" >name</p>
+<p th:text="'Hello！ ' + ${name} + '!'" >hello world</p>
+<p th:text="|Hello！ ${name}!|" >hello world</p>
+<!--
+<p th:text="${#httpServletRequest.getAttribute('ageName')}"></p> #request 3.x的版本
+#session 3.x
+#httpsession 2.x
+-->
+    <!--<p th:text="${}"></p>-->
+
+</div>
+
+
+</body>
+
+
+    
+</html>
