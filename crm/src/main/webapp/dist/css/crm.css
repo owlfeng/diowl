@@ -1,0 +1,269 @@
+
+body{
+    margin: 0px;
+    padding: 0px; 	
+  
+ }
+
+/* 头部*/
+.top-nav .top-nav-inner{
+	background:#3c8dbc!important;
+	border-bottom: 1px solid #3c8dbc;
+}
+.top-nav .brand{
+	background:#3c8dbc!important;
+}
+header .brand span {
+ 	font-size: 18px;
+	color: #FFFFFF;
+}
+.top-nav .nav-notification>li>a {
+    display: block;
+    color: #A34C00!important;
+    padding: 19px!important;
+    }
+.top-nav .nav-notification>li>a:hover {
+    background-color:#FFFFFF!important;
+    }
+.fa-lg{
+	font-size: 22px!important;
+}
+.top-nav .dropdown-menu.notification {
+    width: 150px!important;
+}
+
+.form-group {
+    font-size: 14px!important;
+    margin: 10px;
+}
+
+select {
+    font-size: 14px!important;
+}
+
+/*个人设置*/
+ 			
+/*  列表型表格样式  */
+.TableList {
+    line-height: 20px;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+    .TableList td {
+        padding: 8px 10px;
+        color: #323232;
+    }
+    
+.TableList .TableLine2 td,
+.TableList td.TableLine2 {
+    /*background:#FFFFFF;*/
+    padding-top: 8px;
+    padding-bottom: 5px;
+    border-top: 1px #f1f1f1 solid;
+}
+.TableList .TableLine3 td{
+	margin-left:5px;
+	font-family: "微软雅黑";
+	font-weight:bolder;
+  }	
+  
+/*首页*/
+#items { 
+margin:0 auto; 
+padding:5px 0; 
+clear:both; 
+} 
+#items ul, #items li { 
+list-style:none; 
+} 
+#items li { 
+height: 28px; 
+text-align: right; 
+background-repeat: no-repeat; 
+background-position: 50px center; 
+padding-left: 0px; 
+line-height:28px; 
+color:#CCC; 
+border-bottom:dashed 1px #CCC; 
+} 
+#items li a { 
+float:left; 
+text-align:left; 
+line-height:28px; 
+color:#666; 
+text-decoration:none; 
+} 
+#items li a:hover { 
+color:#1CAF9A; 
+} 
+
+/*基本信息*/
+.r1{
+	margin: 5px;
+}
+.form-inline select{
+	width:200px;
+	height: 25px;
+    padding: 2px 5px;
+    font-size: 13px;
+    line-height: 16px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.form-inline .c0{
+	width:180px;
+	line-height: 20px;
+	 border-radius: 4px;
+	
+}
+.c0{
+	width:180px;
+	line-height: 20px;
+	 border-radius: 4px;
+	
+}
+.form-inline .c1{
+	width: 90px;
+}
+
+/*内容*/
+.breadcrumb {
+  background: #F1F1F1!important;
+    font-size: 14px!important;
+    border-radius: 10px!important;
+ }
+.footer{
+	text-align: center;
+	padding:0!important 10px!important;
+	font-family: "微软雅黑";
+}
+/*tj3*/
+..table > tbody > tr > td {
+    padding: 10px!important;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 2px solid #ddd;
+    }
+    
+
+/*基本信息按钮*/
+.btn1{
+	padding: 10px;
+}
+.dataTable{
+	text-align:center;
+}
+/*添加功能*/
+.box{
+	text-align: center;
+   height: 80px!important;
+  /* line-height: 30px;*/
+}
+.box:hover{
+	background:#E0E2FF;
+box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+.box .box1{
+font-size: 26px;
+color: #0C1318;
+font-family: "微软雅黑";
+}
+
+.box .box1:hover{
+color: #F1CA8C;
+}
+.box i{
+	float: left;
+	line-height:40px ;
+}
+/*手机消息*/
+
+.blog  h1 {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #424242;
+    font-weight: 400;
+    margin: 0px 0 10px 0;
+    line-height: 30px;
+}
+
+.blog  h1 a {
+    color: #424242;
+}
+ 
+.blog p {
+    padding-bottom: 15px;
+    font-size: 14px;
+    font-family: "微软雅黑";
+}
+
+.blog a.more {
+    margin-bottom: 10px;
+    display: inline-block;
+}
+ 
+ 
+.blog-post h3 {
+    font-size: 16px;
+    font-family: "微软雅黑";
+    text-transform: uppercase;
+    color: #424242;
+    font-weight: bold;
+    padding-top: 0px;
+    margin-top: 0;
+}
+
+.blog-post h5 a {
+    color: #424242;
+    text-transform: uppercase;
+    font-family: "微软雅黑";
+}
+
+.blog-post h5 a:hover, .blog-post h5 a:focus, .blog-post ul li a:hover, .blog-post ul li a:focus {
+    color: #65CEA7;
+}
+
+.blog-post p {
+    padding-bottom: 0;
+}
+
+.blog-post ul{
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+}
+
+.blog-post ul li{
+    line-height: 35px;
+    color: #837f7e;
+}
+
+.blog-post ul li a{
+    line-height: 35px;
+    color: #837f7e;
+       font-size: 18px;
+}
+
+.blog-post ul li i {
+    padding-right: 10px;
+    font-size: 18px;
+}
+
+ 
+.media, .media .media {
+    margin-top: 25px;
+    line-height: 20px;
+}
+/*按钮（查询）*/
+.btn-sm{
+   margin:1px 5px 5px 5px;
+}
+
+/*表格搜索*/
+#queryForm{
+	margin-bottom:5px
+}
